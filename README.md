@@ -11,6 +11,8 @@
 脚本将会从链上获取这些logs，第一次运行时间会较长，因为log都将保存到本地。获取完成后会对logs进行
 分析，最后得出高胜率地址
 
+将.env.example的.example后缀去掉，填入alchemy的key
+
 logs将将会保存在`goldDogLogs`和`trashDogLogs`目录下
 
 ### 控制台运行

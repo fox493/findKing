@@ -2,3 +2,4 @@ node_modules
 goldDogLogs/*
 trashDogLogs/*
 yarn.lock
+.env

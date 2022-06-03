@@ -1,10 +1,11 @@
 import { LoadingAnimation } from "./Loading.js"
 import { printBanner } from "./banner.js"
 import { ethers } from "ethers"
+import dotenv from 'dotenv'
 import fs from "fs"
 
 const loader = new LoadingAnimation("calulating...")
-
+dotenv.config('.env')
 /**
  *
  * @param {*} goldenDogsMinters 金狗地址
@@ -14,7 +15,7 @@ const loader = new LoadingAnimation("calulating...")
  * @returns
  */
 let provider = new ethers.providers.WebSocketProvider(
-  "wss://eth-mainnet.alchemyapi.io/v2/0VLC-GIqTGf6nONLhfoddPQAZvCFeLFx"
+  `wss://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`
 )
 
 export async function findKing(

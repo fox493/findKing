@@ -203,7 +203,7 @@ const getLogs = async (address, type) => {
       })
       writeToLocale(address, logs, type)
     } catch (error) {
-      if (error.code == "-32602") {
+      if (error.code == "-32602" || error.code == '-32000') {
         logs = await fragment(address)
         writeToLocale(address, logs, type)
       }

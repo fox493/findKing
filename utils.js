@@ -1,11 +1,10 @@
-import { LoadingAnimation } from "./Loading.js"
 import { printBanner } from "./banner.js"
+import { config } from "./config.js"
 import { ethers } from "ethers"
-import dotenv from 'dotenv'
+import dotenv from "dotenv"
 import fs from "fs"
 
-const loader = new LoadingAnimation("calulating...")
-dotenv.config('.env')
+dotenv.config(".env")
 /**
  *
  * @param {*} goldenDogsMinters 金狗地址
@@ -47,17 +46,19 @@ export async function findKing(
     ],
     80
   )
-  loader.start()
+
   let goldenDogsMinters = await getDogLogs(goldenDogs, "gold")
   let badDogsMinters = await getDogLogs(badDogs, "trash")
-  loader.stop()
+
   let dogsMintersData = []
   let goldTick = 1
   let badTick = 1
   for (let minters of goldenDogsMinters) {
-    console.log(`generating data, gold dog index: ${goldTick}`)
+    console.log(`generating data, golden dog index: ${goldTick}`)
     for (let minter of minters) {
-      let _minterIndex = dogsMintersData.findIndex((el) => el.minter == minter.address)
+      let _minterIndex = dogsMintersData.findIndex(
+        (el) => el.minter == minter.address
+      )
       if (_minterIndex > 0) dogsMintersData[_minterIndex].goldenAmount++
       else {
         dogsMintersData.push({
@@ -71,9 +72,15 @@ export async function findKing(
   }
 
   for (let minters of badDogsMinters) {
-    console.log(`generating data, gold dog index: ${badTick}`)
+    console.log(`generating data, bad dog index: ${badTick}`)
     for (let minter of minters) {
-      let _minterIndex = dogsMintersData.findIndex((el) => el.minter == minter.address && minter.amount <= 3)
+      let _minterIndex = dogsMintersData.findIndex(
+        (el) =>
+          el.minter == minter.address &&
+          (config.mintAmountPerTransaction > 0
+            ? minter.amount <= config.mintAmountPerTransaction
+            : true)
+      )
       if (_minterIndex > 0) {
         dogsMintersData[_minterIndex].badAmount++
       }
@@ -81,22 +88,22 @@ export async function findKing(
     badTick++
   }
 
-  if(must.length) {
-    console.log('retriving must address')
-    for(let dog of must) {
+  if (must.length) {
+    console.log("retriving must address")
+    for (let dog of must) {
       let logs = await readFromLocale(`./goldDogLogs/${dog}.json`)
       let dogMinters = []
-      for(let log of logs) {
+      for (let log of logs) {
         let add = "0x" + log.topics[2].slice(26)
-        if(!dogMinters.includes(add)) dogMinters.push(add)
+        if (!dogMinters.includes(add)) dogMinters.push(add)
       }
       dogsMintersData.map((minter, index) => {
-        if(!dogMinters.includes(minter.minter)) delete dogsMintersData[index]
+        if (!dogMinters.includes(minter.minter)) delete dogsMintersData[index]
       })
     }
   }
-  
-  console.log('caculating...')
+
+  console.log("caculating...")
   dogsMintersData.map((minter, index) => {
     if (minter.goldenAmount < mintedAmount) delete dogsMintersData[index]
     if (minter.badAmount >= trashAmount) delete dogsMintersData[index]
@@ -170,14 +177,16 @@ const getDogLogs = async (dogs, type) => {
     if (logs) {
       for (let log of logs) {
         let add = "0x" + log.topics[2].slice(26)
-        if (prjMinters.findIndex(e => e.address == add) < 0) prjMinters.push({
-          address: add,
-          amount: 1
-        })
-        else prjMinters.map((e) => {
-          if(e.address == add) e.amount++
-          return e
-        })
+        if (prjMinters.findIndex((e) => e.address == add) < 0)
+          prjMinters.push({
+            address: add,
+            amount: 1,
+          })
+        else
+          prjMinters.map((e) => {
+            if (e.address == add) e.amount++
+            return e
+          })
       }
       DogsMinters.push(prjMinters)
     }
@@ -203,7 +212,7 @@ const getLogs = async (address, type) => {
       })
       writeToLocale(address, logs, type)
     } catch (error) {
-      if (error.code == "-32602" || error.code == '-32000') {
+      if (error.code == "-32602" || error.code == "-32000") {
         logs = await fragment(address)
         writeToLocale(address, logs, type)
       }
@@ -264,9 +273,9 @@ const writeToLocale = (address, logs, type) => {
 }
 
 export const formatTxt = (path) => {
-  let res = fs.readFileSync(path, 'utf8')
+  let res = fs.readFileSync(path, "utf8")
   let my_address = []
-  res.split(/\r?\n/).forEach(add => {
+  res.split(/\r?\n/).forEach((add) => {
     my_address.push(add.trim())
   })
   return my_address

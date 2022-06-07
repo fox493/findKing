@@ -1,40 +1,40 @@
-## 脚本说明
-&nbsp;&nbsp;&nbsp;&nbsp;该脚本用来筛选NFT图狗高胜率地址，利用可跟踪地址交易的工具来跟着图狗王打土狗🐶！
+中文 / [English](https://github.com/TimGrey998/fingKing/README.md)
+## Introduction
+&nbsp;&nbsp;&nbsp;&nbsp;This script is used to find the high win rate address of free mint (means there is a considerable profit can be taken), then you can use some tracker bot to follow this address to send the transaction.
 
-&nbsp;&nbsp;&nbsp;&nbsp;另外推销下自己的freemint-tracker机器人，个人认为比目前市面所有产品都要完善且<b>速度更快</b>。我自己玩自动化打图狗已经很久了，踩的坑也很多，已经尽力做到可以不错失金狗的情况下筛选掉垃圾项目，尤其最近图狗市场越来越火热，伴随的垃圾项目也越来越多，大部分产品的过滤功能也并不完备，gas烧起来还是很伤的。
+&nbsp;&nbsp;&nbsp;&nbsp;In addition, I want to recommend my freemint-tracker bot, <b>it's better than most of the similar product, more complete, and faster.</b> I've been play this freemint thing for a long time, to be honest I encountered a lot of problems and lost a lot of gas fee, so I kept on optimizing the strategy to filtrate the crappy project, while not missing those high profit project.
 
-&nbsp;&nbsp;&nbsp;&nbsp;有兴趣了解freemint-tracker或者对本仓库代码有问题的可以[twitter](https://twitter.com/xof2021)来dm我，或者加我的wechat：FOX394
+&nbsp;&nbsp;&nbsp;&nbsp;If you got any interest in my freemint-tracker bot or any issue with this repo, you can contact me through [twitter](https://twitter.com/xof2021) or my Wechat: FOX394.
 <div align="center">
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
     src="https://github.com/TimGrey998/img/blob/main/freemint-tracker.png">
     <br>
-    <p style="opacity: 0.6;font-size: small;">Freemint-tracker 仓库</p>
+    <p style="opacity: 0.6;font-size: small;">freemint-tracker repo</p>
 </div>
 
-## 使用说明
+## Config
 
-1. 将有不错利润的项目和无利润项目的合约地址分别填入`glodDogs.txt`和`trashDogs.txt`，换行符隔开
+1. Put the addresses of those project with nice profit into `goldDogs.txt`(sorry the name sounds a little wired, its kinda Chinese another name of those freemint project), and put those crap into `trashDogs.txt`, <b>don't forget the line break</b>.
 
-2. `config.js`中根据注释配置参数
+2. Fill the `config.js` according to the comment.
 
-3. 将.env.example的.example后缀去掉，填入alchemy的key
+3. Rename the `.env.example` file to `.env`, and paste your alchemy api key bewteen the quotes.
 
-4. 脚本将会从链上获取这些logs，第一次运行时间会较长，因为log都将保存到本地。获取完成后会对logs进行分析，最后得出高胜率地址<b>(Alchemy的api规定log返回值不可以超过10000条，所以当超过10000条时将采用分片下载，时间会更长一些，所以第一次运行需要耐心等待)</b>
-<b>关于api的问题如果有更好的解决方案请提给我～</b>
+4. The script will request logs from the block chain, and it will take a while if it's your first time running this script. Once it's done, the script will analyze the logs and generate the high win rate addresses.<b>(Alchemy has a limit on the amount of the returned logs, so when the logs exceeds 10000, we have to partially request those logs, it will takes longer, please be patient)</b>
 
-5. logs将将会保存在`goldDogLogs`和`trashDogLogs`目录下
+5. Logs will be stored into `goldDogLogs` and `trashDogLogs` directories, respectively.
 
-6. 可以使用`node getWinRate 地址`来查询单个地址的胜率
+6. run the script
 
-## 控制台运行
+## How to run
 
 ``` shell
 
-// 筛选高胜率地址
+// generate addresses on the basis of config
 node findKing
 
-// 查询单个地址胜率
-node getWinRate
+// get the win rate of a specific address
+node getWinRate "address here"
 
 ```

@@ -1,4 +1,4 @@
-import { findKing, formatTxt } from "./utils.js"
+import { findKing, formatTxt } from "./utils/utils.js"
 import { config } from "./config.js"
 console.clear()
 /**

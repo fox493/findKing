@@ -1,4 +1,4 @@
-中文 / [English](https://github.com/TimGrey998/fingKing/README.md)
+[中文](https://github.com/TimGrey998/findKing/blob/main/README-CN.md) / English
 ## Introduction
 &nbsp;&nbsp;&nbsp;&nbsp;This script is used to find the high win rate address of free mint (means there is a considerable profit can be taken), then you can use some tracker bot to follow this address to send the transaction.
 

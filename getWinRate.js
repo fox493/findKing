@@ -1,4 +1,4 @@
-import { getWinRate } from "./utils.js";
+import { getWinRate } from "./utils/utils.js";
 
 let address = process.argv.slice(2)[0]
 // console.log(address)

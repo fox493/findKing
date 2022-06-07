@@ -1,4 +1,4 @@
-[中文](https://github.com/TimGrey998/finking/README-CN.md) / English
+中文 / [English](https://github.com/TimGrey998/findKing/blob/main/README.md)
 ## 脚本说明
 &nbsp;&nbsp;&nbsp;&nbsp;该脚本用来筛选NFT图狗高胜率地址，利用可跟踪地址交易的工具来跟着图狗王打土狗🐶！
 

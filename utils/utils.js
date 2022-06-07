@@ -18,7 +18,7 @@ dotenv.config(".env")
 let provider = new ethers.providers.WebSocketProvider(
   `wss://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`
 )
-let loader = new LoadingAnimation("requesting...")
+let loader = new LoadingAnimation("🌍 requesting...")
 
 export async function findKing(
   goldenDogs = [],

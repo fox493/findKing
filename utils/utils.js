@@ -1,5 +1,5 @@
 import { printBanner } from "./banner.js"
-import { config } from "./config.js"
+import { config } from "../config.js"
 import { ethers } from "ethers"
 import dotenv from "dotenv"
 import fs from "fs"

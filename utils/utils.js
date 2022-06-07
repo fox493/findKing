@@ -28,7 +28,7 @@ export async function findKing(
   trashAmount
 ) {
   printBanner(
-    `Config Info`,
+    `Configuration Info`,
     [
       {
         label: "🐶 Golden Project Amount ",
@@ -146,7 +146,7 @@ export async function getWinRate(address) {
     }
   }
   printBanner(
-    `Config Info`,
+    `Result`,
     [
       {
         label: `🌍 Address`,

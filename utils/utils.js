@@ -175,8 +175,8 @@ const getDogLogs = async (dogs, type) => {
     loader.start()
     console.log(`🔍 getting logs of ${type} addresses ${i}:${dogs[i]}...`)
     let logs = await getLogs(address, type)
-    console.log(chalk.green(`✅ logs' length: ${logs.length}, successful writting in locale`))
     loader.stop()
+    console.log(chalk.green(`✅ logs' length: ${logs.length}, successful writting in locale`))
     // console.log(logs)
     if (logs) {
       for (let log of logs) {

@@ -1,5 +1,5 @@
 import { findKing, formatTxt } from "./utils.js"
-
+import { config } from "./config.js"
 console.clear()
 /**
  *
@@ -20,9 +20,7 @@ console.clear()
 findKing(
   formatTxt("./goldDogs.txt"),
   formatTxt("./trashDogs.txt"),
-  [
-    // '0x5646908923F052e640611a53EC3C202864ce8620'
-  ],
-  20,
-  100
+  config.indispensableAddress,
+  config.goldAmount,
+  config.trashAmount
 )

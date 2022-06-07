@@ -1,5 +1,6 @@
 ## 脚本说明
 &nbsp;&nbsp;&nbsp;&nbsp;该脚本用来筛选NFT图狗高胜率地址，利用可跟踪地址交易的工具来跟着图狗王打土狗🐶！
+
 &nbsp;&nbsp;&nbsp;&nbsp;另外推销下自己的freemint-tracker机器人，个人认为比目前市面所有产品都要完善且<b>速度更快</b>。我自己玩自动化打图狗已经很久了，踩的坑也很多，已经尽力做到可以不错失金狗的情况下筛选掉垃圾项目，尤其最近图狗市场越来越火热，伴随的垃圾项目也越来越多，大部分产品的过滤功能也并不完备，gas烧起来还是很伤的。
 &nbsp;&nbsp;&nbsp;&nbsp;有兴趣了解freemint-tracker或者对本仓库代码有问题的可以[twitter](https://twitter.com/xof2021)来dm我，或者加我的wechat：FOX394
 <center>

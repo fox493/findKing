@@ -4,12 +4,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;另外推销下自己的freemint-tracker机器人，个人认为比目前市面所有产品都要完善且<b>速度更快</b>。我自己玩自动化打图狗已经很久了，踩的坑也很多，已经尽力做到可以不错失金狗的情况下筛选掉垃圾项目，尤其最近图狗市场越来越火热，伴随的垃圾项目也越来越多，大部分产品的过滤功能也并不完备，gas烧起来还是很伤的。
 
 &nbsp;&nbsp;&nbsp;&nbsp;有兴趣了解freemint-tracker或者对本仓库代码有问题的可以[twitter](https://twitter.com/xof2021)来dm我，或者加我的wechat：FOX394
-<center>
+<div align="center">
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
     src="https://github.com/TimGrey998/img/blob/main/freemint-tracker.png">
     <br>
-</center>
+    <p style="opacity: 0.6;font-size: small;">Freemint-tracker 仓库</p>
+</div>
 
 ## 使用说明
 

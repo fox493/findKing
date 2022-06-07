@@ -1,4 +1,13 @@
 [中文](https://github.com/TimGrey998/findKing/blob/main/README-CN.md) / English
+<div align="center">
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="https://github.com/TimGrey998/img/blob/main/priview.png">
+    <br>
+    <p style="opacity: 0.8">Find the king of freemint</p>
+    <p style="opacity: 0.8">This is a script can help you find the high win rate accounts of freemint</p>
+</div>
+
 ## Introduction
 &nbsp;&nbsp;&nbsp;&nbsp;This script is used to find the high win rate address of free mint (means there is a considerable profit can be taken), then you can use some tracker bot to follow this address to send the transaction.
 

@@ -1,4 +1,13 @@
 中文 / [English](https://github.com/TimGrey998/findKing/blob/main/README.md)
+<div align="center">
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="https://github.com/TimGrey998/img/blob/main/priview.png">
+    <br>
+    <p style="opacity: 0.8">Find the king of freemint</p>
+    <p style="opacity: 0.8">这是一个可以帮助你找到高胜率图狗大佬的脚本</p>
+</div>
+
 ## 脚本说明
 &nbsp;&nbsp;&nbsp;&nbsp;该脚本用来筛选NFT图狗高胜率地址，利用可跟踪地址交易的工具来跟着图狗王打土狗🐶！
 

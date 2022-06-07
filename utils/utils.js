@@ -217,6 +217,7 @@ const getLogs = async (address, type) => {
       writeToLocale(address, logs, type)
     } catch (error) {
       if (error.code == "-32602" || error.code == "-32000") {
+        loader.stop()
         logs = await fragment(address)
         writeToLocale(address, logs, type)
       }
@@ -226,6 +227,7 @@ const getLogs = async (address, type) => {
 }
 const fragment = async (address) => {
   console.log(chalk.yellow("segmented downloading...please be patient"))
+  loader.start()
   let fromBlock = config.fromBlock
   let toBlock = await provider.getBlockNumber()
   let logs = []
@@ -256,6 +258,7 @@ const fragment = async (address) => {
       ],
     })),
   ]
+  loader.stop()
   return logs
 }
 

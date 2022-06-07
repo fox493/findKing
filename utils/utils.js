@@ -3,6 +3,7 @@ import { printBanner } from "./banner.js"
 import { config } from "../config.js"
 import { ethers } from "ethers"
 import dotenv from "dotenv"
+import chalk from 'chalk'
 import fs from "fs"
 
 dotenv.config(".env")
@@ -48,6 +49,7 @@ export async function findKing(
     ],
     80
   )
+  console.log(chalk.red('If this is your first time running the script, please be patient and take a cup of coffee☕️'))
   let goldenDogsMinters = await getDogLogs(goldenDogs, "gold")
   let badDogsMinters = await getDogLogs(badDogs, "trash")
 
@@ -173,7 +175,7 @@ const getDogLogs = async (dogs, type) => {
     loader.start()
     console.log(`🔍 getting logs of ${type} addresses ${i}:${dogs[i]}...`)
     let logs = await getLogs(address, type)
-    console.log(` logs' length: ${logs.length}`)
+    console.log(chalk.green(` logs' length: ${logs.length}, successful writting in locale`))
     loader.stop()
     // console.log(logs)
     if (logs) {
@@ -223,7 +225,7 @@ const getLogs = async (address, type) => {
   return logs
 }
 const fragment = async (address) => {
-  console.log("segmented downloading...please be patient ❤️")
+  console.log(chalk.yellow("segmented downloading...please be patient"))
   let fromBlock = config.fromBlock
   let toBlock = await provider.getBlockNumber()
   let logs = []
@@ -272,7 +274,7 @@ const readFromLocale = async (path) => {
 const writeToLocale = (address, logs, type) => {
   let path = `./${type}DogLogs/${address}.json`
   fs.writeFile(path, JSON.stringify(logs, null, 4), () => {
-    console.log(`successful writting in locale`)
+    // console.log(`successful writting in locale`)
   })
 }
 

@@ -1,3 +1,4 @@
+import { LoadingAnimation } from "./Loading.js"
 import { printBanner } from "./banner.js"
 import { config } from "../config.js"
 import { ethers } from "ethers"
@@ -16,6 +17,7 @@ dotenv.config(".env")
 let provider = new ethers.providers.WebSocketProvider(
   `wss://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`
 )
+let loader = new LoadingAnimation("requesting...")
 
 export async function findKing(
   goldenDogs = [],
@@ -25,7 +27,7 @@ export async function findKing(
   trashAmount
 ) {
   printBanner(
-    `Monitoring Info`,
+    `Config Info`,
     [
       {
         label: "🐶 Golden Project Amount ",
@@ -46,7 +48,6 @@ export async function findKing(
     ],
     80
   )
-
   let goldenDogsMinters = await getDogLogs(goldenDogs, "gold")
   let badDogsMinters = await getDogLogs(badDogs, "trash")
 
@@ -143,7 +144,7 @@ export async function getWinRate(address) {
     }
   }
   printBanner(
-    `Monitoring Info`,
+    `Config Info`,
     [
       {
         label: `🌍 Address`,
@@ -169,11 +170,12 @@ const getDogLogs = async (dogs, type) => {
   for (let i = 0; i < dogs.length; i++) {
     let address = dogs[i]
     let prjMinters = []
+    loader.start()
+    console.log(`🔍 getting logs of ${type} addresses ${i}:${dogs[i]}...`)
     let logs = await getLogs(address, type)
+    console.log(` logs' length: ${logs.length}`)
+    loader.stop()
     // console.log(logs)
-    console.log(
-      `getting logs of address ${i}:${dogs[i]}, logs' length: ${logs.length}`
-    )
     if (logs) {
       for (let log of logs) {
         let add = "0x" + log.topics[2].slice(26)
@@ -202,7 +204,7 @@ const getLogs = async (address, type) => {
     try {
       logs = await provider.getLogs({
         address,
-        fromBlock: 14400000,
+        fromBlock: config.fromBlock,
         topics: [
           null,
           "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -221,9 +223,11 @@ const getLogs = async (address, type) => {
   return logs
 }
 const fragment = async (address) => {
-  let fromBlock = 14400000
+  console.log("segmented downloading...please be patient ❤️")
+  let fromBlock = config.fromBlock
   let toBlock = await provider.getBlockNumber()
   let logs = []
+  console.log("we need to segmented download the logs")
   while (fromBlock + 4001 < toBlock) {
     fromBlock += 2001
     let _logs = await provider.getLogs({

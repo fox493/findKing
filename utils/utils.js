@@ -226,7 +226,7 @@ const getLogs = async (address, type) => {
   return logs
 }
 const fragment = async (address) => {
-  console.log(chalk.yellow("⏬ segmented downloading...please be patient"))
+  console.log(chalk.yellow("⏬ segmented downloading...please be patient..."))
   loader.start()
   let fromBlock = config.fromBlock
   let toBlock = await provider.getBlockNumber()

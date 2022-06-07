@@ -3,7 +3,7 @@ import { printBanner } from "./banner.js"
 import { config } from "../config.js"
 import { ethers } from "ethers"
 import dotenv from "dotenv"
-import chalk from 'chalk'
+import chalk from "chalk"
 import fs from "fs"
 
 dotenv.config(".env")
@@ -49,7 +49,11 @@ export async function findKing(
     ],
     80
   )
-  console.log(chalk.red('If this is your first time running the script, please be patient and take a cup of coffee☕️'))
+  console.log(
+    chalk.red(
+      "If this is your first time running the script, please be patient and take a cup of coffee☕️"
+    )
+  )
   let goldenDogsMinters = await getDogLogs(goldenDogs, "gold")
   let badDogsMinters = await getDogLogs(badDogs, "trash")
 
@@ -176,7 +180,11 @@ const getDogLogs = async (dogs, type) => {
     console.log(`🔍 getting logs of ${type} addresses ${i}:${dogs[i]}...`)
     let logs = await getLogs(address, type)
     loader.stop()
-    console.log(chalk.green(`✅ logs' length: ${logs.length}, successful writting in locale`))
+    console.log(
+      chalk.green(
+        `✅ logs' length: ${logs.length}, successful writting in locale`
+      )
+    )
     // console.log(logs)
     if (logs) {
       for (let log of logs) {

@@ -31,7 +31,7 @@
 
 ``` shell
 
-// generate addresses on the basis of config
+// generate addresses on the basis of configuration
 node findKing
 
 // get the win rate of a specific address

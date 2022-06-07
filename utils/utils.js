@@ -177,7 +177,7 @@ const getDogLogs = async (dogs, type) => {
     let address = dogs[i]
     let prjMinters = []
     loader.start()
-    console.log(`🔍 getting logs of ${type} addresses ${i}:${dogs[i]}...`)
+    console.log(`🔍 getting logs of ${type} addresses ${i}: ${dogs[i]}...`)
     let logs = await getLogs(address, type)
     loader.stop()
     console.log(

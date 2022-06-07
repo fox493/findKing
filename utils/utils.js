@@ -229,7 +229,6 @@ const fragment = async (address) => {
   let fromBlock = config.fromBlock
   let toBlock = await provider.getBlockNumber()
   let logs = []
-  console.log("we need to segmented download the logs")
   while (fromBlock + 4001 < toBlock) {
     fromBlock += 2001
     let _logs = await provider.getLogs({

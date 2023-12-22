@@ -13,7 +13,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;In addition, I want to recommend my freemint-tracker bot, <b>it's better than most of the similar product, more complete, and faster.</b> I've been play this freemint thing for a long time, to be honest I encountered a lot of problems and lost a lot of gas fee, so I kept on optimizing the strategy to filtrate the crappy project, while not missing those high profit project.
 
-&nbsp;&nbsp;&nbsp;&nbsp;If you got any interest in my freemint-tracker bot or any issue with this repo, you can contact me through [twitter](https://twitter.com/xof2021) , my Discord: <b>foxof.eth#5195</b>, or my Wechat: <b>FOX394</b>.
+&nbsp;&nbsp;&nbsp;&nbsp;If you got any interest in my freemint-tracker bot or any issue with this repo, you can contact me through [twitter](https://twitter.com/xof2021) , my Discord: <b>foxof.eth#5195</b>, or my Wechat: <b>foxof_eth</b>.
 <div align="center">
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
